@@ -23,18 +23,21 @@ app.post("/",function(req,res){
       const weatherData = JSON.parse(data);
       const temp = weatherData.list[0].main.temp;
       const humid = weatherData.list[0].main.humidity;
-      const speed = weatherData.list[0].wind.speed *3.6;
+      var speed = weatherData.list[0].wind.speed *3.6;
       const details=weatherData.list[0].name;
       const des=weatherData.list[0].weather[0].description;
+      speed = speed.toFixed(2);
 
       const icon = weatherData.list[0].weather[0].icon;
-      const imageURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+      const imageURL = "http://openweathermap.org/img/wn/" + icon + "@4x.png";
 
-      res.write("<h1> Weather in "+query+" is currently "+des+" </h1>");
-      res.write("<h1> temperature at "+query+" is "+temp+" degree celcius </h1>");
-      res.write("<h1> Humidity "+humid+"% </h1>");
-      res.write("<h1> Wind Speed "+speed+"KMPH </h1>");
+      res.write("<h1> Weather in "+query+" is currently <mark>"+des+"</mark> </h1>");
       res.write("<img src="+imageURL+">");
+      res.write("<br>");
+      res.write("<h1> Temperature <mark>"+temp+" degree celcius </mark> </h1>");
+      res.write("<h1> Humidity <mark>"+humid+"%</mark> </h1>");
+      res.write("<h1> Wind Speed <mark>"+speed+" Kilometer per hour </mark> </h1>");
+
       res.send();
    })
  })
