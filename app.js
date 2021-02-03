@@ -30,14 +30,12 @@ app.post("/",function(req,res){
 
       const icon = weatherData.list[0].weather[0].icon;
       const imageURL = "http://openweathermap.org/img/wn/" + icon + "@4x.png";
-
       res.write("<h1> Weather in "+query+" is currently <mark>"+des+"</mark> </h1>");
       res.write("<img src="+imageURL+">");
       res.write("<br>");
       res.write("<h2> Temperature <mark>"+temp+" degree celcius </mark> </h2>");
       res.write("<h2> Humidity <mark>"+humid+"%</mark> </h2>");
       res.write("<h2> Wind Speed <mark>"+speed+" Kilometer per hour </mark> </h2>");
-
       res.send();
    })
  })
