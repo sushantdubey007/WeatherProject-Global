@@ -34,9 +34,9 @@ app.post("/",function(req,res){
       res.write("<h1> Weather in "+query+" is currently <mark>"+des+"</mark> </h1>");
       res.write("<img src="+imageURL+">");
       res.write("<br>");
-      res.write("<h1> Temperature <mark>"+temp+" degree celcius </mark> </h1>");
-      res.write("<h1> Humidity <mark>"+humid+"%</mark> </h1>");
-      res.write("<h1> Wind Speed <mark>"+speed+" Kilometer per hour </mark> </h1>");
+      res.write("<h2> Temperature <mark>"+temp+" degree celcius </mark> </h2>");
+      res.write("<h2> Humidity <mark>"+humid+"%</mark> </h2>");
+      res.write("<h2> Wind Speed <mark>"+speed+" Kilometer per hour </mark> </h2>");
 
       res.send();
    })
