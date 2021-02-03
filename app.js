@@ -30,8 +30,8 @@ app.post("/",function(req,res){
       const imageURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
 
       res.write("<h1> Weather in "+query+" is currently "+des+" </h1>");
-      res.write("<h2> Tempature at "+query+" is "+temp+" degree celcius </h2>");
-      res.write("<h2> Humadity "+humid+"% </h2>");
+      res.write("<h2> temperature at "+query+" is "+temp+" degree celcius </h2>");
+      res.write("<h2> Humidity "+humid+"% </h2>");
       res.write("<img src="+imageURL+">");
       res.send();
    })
