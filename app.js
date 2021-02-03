@@ -22,6 +22,7 @@ app.post("/",function(req,res){
     response.on("data",function(data){
       const weatherData = JSON.parse(data);
       const temp = weatherData.list[0].main.temp;
+      const humid = weatherData.list[0].main.humidity;
       const details=weatherData.list[0].name;
       const des=weatherData.list[0].weather[0].description;
 
@@ -30,6 +31,7 @@ app.post("/",function(req,res){
 
       res.write("<h1> Weather in "+query+" is currently "+des+" </h1>");
       res.write("<h2> Tempature at "+query+" is "+temp+" degree celcius </h2>");
+      res.write("<h2> Humadity at "+query+" is "+humid+"% </h2>");
       res.write("<img src="+imageURL+">");
       res.send();
    })
