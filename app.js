@@ -31,7 +31,7 @@ app.post("/",function(req,res){
 
       res.write("<h1> Weather in "+query+" is currently "+des+" </h1>");
       res.write("<h2> Tempature at "+query+" is "+temp+" degree celcius </h2>");
-      res.write("<h2> Humadity at "+query+" is "+humid+"% </h2>");
+      res.write("<h2> Humadity "+humid+"% </h2>");
       res.write("<img src="+imageURL+">");
       res.send();
    })
