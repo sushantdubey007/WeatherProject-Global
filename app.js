@@ -23,6 +23,7 @@ app.post("/",function(req,res){
       const weatherData = JSON.parse(data);
       const temp = weatherData.list[0].main.temp;
       const humid = weatherData.list[0].main.humidity;
+      const speed = weatherData.list[0].wind.speed *3.6;
       const details=weatherData.list[0].name;
       const des=weatherData.list[0].weather[0].description;
 
@@ -30,8 +31,9 @@ app.post("/",function(req,res){
       const imageURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
 
       res.write("<h1> Weather in "+query+" is currently "+des+" </h1>");
-      res.write("<h2> temperature at "+query+" is "+temp+" degree celcius </h2>");
-      res.write("<h2> Humidity "+humid+"% </h2>");
+      res.write("<h1> temperature at "+query+" is "+temp+" degree celcius </h1>");
+      res.write("<h1> Humidity "+humid+"% </h1>");
+      res.write("<h1> Wind Speed "+speed+"KMPH </h1>");
       res.write("<img src="+imageURL+">");
       res.send();
    })
